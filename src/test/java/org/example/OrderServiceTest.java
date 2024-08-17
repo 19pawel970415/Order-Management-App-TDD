@@ -40,6 +40,20 @@ class OrderServiceTest {
     }
 
     @Test
+    void shouldNotDeleteNonexistentOrder() {
+        List<String> items = Arrays.asList("Bread", "Butter", "Ham");
+        Order order = new Order("54321", "Customer_2", items, 30.0);
+        orderService.addOrder(order);
+
+        orderService.deleteOrder("12345");
+
+        assertThat(orderRepository.getOrdersList())
+                .isNotEmpty()
+                .hasSize(1)
+                .containsExactly(order);
+    }
+
+    @Test
     void findOrder() {
     }
 
