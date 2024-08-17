@@ -14,8 +14,7 @@ public class OrderService {
         orderRepository.getOrdersList().add(order);
     }
 
-    public List<Order> deleteOrder(String id) {
-        return null;
+    public void deleteOrder(String id) {
     }
 
     public Order findOrder(String id) {
