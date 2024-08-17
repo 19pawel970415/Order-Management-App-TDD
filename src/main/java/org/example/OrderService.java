@@ -11,7 +11,7 @@ public class OrderService {
     }
 
     public void addOrder(Order order) {
-
+        orderRepository.getOrdersList().add(order);
     }
 
     public List<Order> deleteOrder(String id) {
