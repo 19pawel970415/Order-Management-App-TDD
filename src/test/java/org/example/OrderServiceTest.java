@@ -80,7 +80,20 @@ class OrderServiceTest {
     }
 
     @Test
-    void showAllOrders() {
+    void shouldGetAllOrders() {
+        List<String> items = Arrays.asList("Bread", "Butter", "Cheese");
+        Order order = new Order("12345", "Customer_1", items, 50.0);
+        List<String> items1 = Arrays.asList("Bread", "Butter", "Ham");
+        Order order1 = new Order("54321", "Customer_2", items, 30.0);
+        orderService.addOrder(order);
+        orderService.addOrder(order1);
+
+        List<Order> orders = orderService.showAllOrders();
+
+        assertThat(orders)
+                .isNotEmpty()
+                .hasSize(2)
+                .containsExactly(order, order1);
     }
 
     @Test
