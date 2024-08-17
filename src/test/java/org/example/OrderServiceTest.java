@@ -67,6 +67,19 @@ class OrderServiceTest {
     }
 
     @Test
+    void shouldNotFindNoneExistentOrder() {
+        List<String> items = Arrays.asList("Bread", "Butter", "Cheese");
+        Order order = new Order("00000","Customer_0", items, 0.0);
+        orderService.addOrder(order);
+        String id = "12345";
+
+        Order foundOrder = orderService.findOrder(id);
+
+        assertThat(foundOrder)
+                .isEqualTo(order);
+    }
+
+    @Test
     void showAllOrders() {
     }
 
