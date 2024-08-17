@@ -26,7 +26,17 @@ class OrderServiceTest {
     }
 
     @Test
-    void deleteOrder() {
+    void shouldDeleteOrder() {
+        List<String> items = Arrays.asList("Bread", "Butter", "Cheese");
+        Order order = new Order("12345", "Customer_1", items, 50.0);
+        orderService.addOrder(order);
+
+        orderService.deleteOrder("12345");
+
+        assertThat(orderRepository.getOrdersList())
+                .doesNotContain(order)
+                .hasSize(0)
+                .isEmpty();
     }
 
     @Test
