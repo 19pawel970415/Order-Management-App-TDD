@@ -22,7 +22,7 @@ class OrderServiceTest {
         assertThat(orderRepository.getOrdersList())
                 .isNotEmpty()
                 .hasSize(1)
-                .contains(order);
+                .containsExactly(order);
     }
 
     @Test
