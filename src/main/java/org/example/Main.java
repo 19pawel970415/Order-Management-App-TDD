@@ -40,21 +40,6 @@ public class Main {
     //W testach sprawdzających właściwości zamówienia (Order), użyj AssertJ, aby zwiększyć czytelność asercji.
     //Skorzystaj z metod cyklu życia testów (@BeforeEach, @AfterEach),
     // aby przygotować dane do testów i czyścić po nich zasoby.
-    //Przykładowy test:
-    //java
-    //Skopiuj kod
-    //@Test
-    //void shouldAddOrderToOrderService() {
-    //    // given
-    //    OrderService orderService = new OrderService();
-    //    Order order = new Order("1", "John Doe", Arrays.asList("item1", "item2"), 100.0);
-    //
-    //    // when
-    //    orderService.addOrder(order);
-    //
-    //    // then
-    //    assertThat(orderService.getAllOrders()).contains(order);
-    //}
     //Krok 4: Rozszerzenia (opcjonalne)
     //Dodaj możliwość aktualizacji zamówienia w OrderService.
     //Wprowadź wyjątek, jeśli próbujesz dodać zamówienie z istniejącym id.
