@@ -54,7 +54,16 @@ class OrderServiceTest {
     }
 
     @Test
-    void findOrder() {
+    void shouldFindOrder() {
+        List<String> items = Arrays.asList("Bread", "Butter", "Cheese");
+        Order order = new Order("12345", "Customer_1", items, 50.0);
+        orderService.addOrder(order);
+        String id = "12345";
+
+        Order foundOrder = orderService.findOrder(id);
+
+        assertThat(foundOrder)
+                .isEqualTo(order);
     }
 
     @Test
