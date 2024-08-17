@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class OrderService {
 
@@ -47,7 +48,9 @@ public class OrderService {
     }
 
     public double countSumOfAllOrders() {
-        return 0;
+        Double sum = orderRepository.getOrdersList().stream()
+                .collect(Collectors.summingDouble(o -> o.getTotalAmount()));
+        return sum;
     }
 
 }
