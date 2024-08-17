@@ -106,6 +106,17 @@ class OrderServiceTest {
     }
 
     @Test
-    void countSumOfAllOrders() {
+    void shouldCountSumOfAllOrders() {
+        List<String> items = Arrays.asList("Bread", "Butter", "Cheese");
+        Order order = new Order("12345", "Customer_1", items, 50.0);
+        List<String> items1 = Arrays.asList("Bread", "Butter", "Ham");
+        Order order1 = new Order("54321", "Customer_2", items, 30.0);
+        orderService.addOrder(order);
+        orderService.addOrder(order1);
+        double expectedSum = 80.0;
+
+        double actualSum = orderService.countSumOfAllOrders();
+
+        assertThat(actualSum).isEqualTo(expectedSum);
     }
 }
