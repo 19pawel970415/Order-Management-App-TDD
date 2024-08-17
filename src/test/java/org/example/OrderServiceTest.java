@@ -119,4 +119,13 @@ class OrderServiceTest {
 
         assertThat(actualSum).isEqualTo(expectedSum);
     }
+
+    @Test
+    void shouldCountSumAsZeroOfNoneOrders() {
+        double expectedSum = 0.0;
+
+        double actualSum = orderService.countSumOfAllOrders();
+
+        assertThat(actualSum).isEqualTo(expectedSum);
+    }
 }
