@@ -42,8 +42,8 @@ public class OrderService {
         }
     }
 
-    public List<Order> showAllOrders() {
-        return null;
+    public List<Order> getAllOrders() {
+        return orderRepository.getOrdersList();
     }
 
     public double countSumOfAllOrders() {

@@ -88,12 +88,21 @@ class OrderServiceTest {
         orderService.addOrder(order);
         orderService.addOrder(order1);
 
-        List<Order> orders = orderService.showAllOrders();
+        List<Order> orders = orderService.getAllOrders();
 
         assertThat(orders)
                 .isNotEmpty()
                 .hasSize(2)
                 .containsExactly(order, order1);
+    }
+
+    @Test
+    void shouldGetNoneOrders() {
+        List<Order> orders = orderService.getAllOrders();
+
+        assertThat(orders)
+                .hasSize(0)
+                .isEmpty();
     }
 
     @Test
