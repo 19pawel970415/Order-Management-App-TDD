@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +30,16 @@ public class OrderService {
     }
 
     public Order findOrder(String id) {
-        return null;
+        Optional<Order> foundOrder = orderRepository.getOrdersList().stream()
+                .filter(o -> o.getId().equals(id))
+                .findFirst();
+
+        if (!foundOrder.isEmpty()) {
+            return foundOrder.get();
+        } else {
+            List<String> items = new ArrayList<>();
+            return new Order("00000","Customer_0", items, 0.0);
+        }
     }
 
     public List<Order> showAllOrders() {
